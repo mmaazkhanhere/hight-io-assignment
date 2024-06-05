@@ -1,15 +1,25 @@
+/**A react component that displays the hero section of the website. A random
+ * cocktail is displayed on the hero section by fetching data from specified
+ * endpoint
+ */
 "use client";
+
 import React, { useEffect, useState } from "react";
-import { DrinkDetails } from "../../interfaces-d";
+
 import Image from "next/image";
 import Link from "next/link";
+
 import { RotateCw } from "lucide-react";
+
+import { DrinkDetails } from "../../interfaces-d";
 
 type Props = {};
 
 const HeroSection = (props: Props) => {
+	/*State variable for the data */
 	const [randomData, setRandomData] = useState<DrinkDetails | null>(null);
 
+	/*useEffect to fetch data from the specified endpoint */
 	useEffect(() => {
 		const fethcRandomDrink = async () => {
 			try {
@@ -25,6 +35,8 @@ const HeroSection = (props: Props) => {
 		fethcRandomDrink();
 	}, []);
 
+	/*While data is being fetched, display a loading page indicating data is being
+	fetched */
 	if (randomData === null) {
 		return (
 			<div className="w-full flex items-center justify-center h-full">
@@ -36,18 +48,22 @@ const HeroSection = (props: Props) => {
 	return (
 		<section className="w-full bg-gradient-to-tr from-blue-300 via-blue-500 to-blue-700 px-2">
 			<div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center py-10 ">
+				{/*Hero Headline and subheading */}
 				<div className="flex flex-col items-start gap-y-3">
+					\{/*Headline */}
 					<h1 className="text-5xl font-bold uppercase tracking-wide text-black ">
 						Sip Our Featured Creation{" "}
 						<span className="text-white">
 							{randomData.strDrink}
 						</span>
 					</h1>
+					{/*Subheading */}
 					<p className="font-extralight">
 						We change our menu every month and pick our favorite
 						display here
 					</p>
 				</div>
+				{/*Image */}
 				<div>
 					<Link
 						className="overflow-hidden "

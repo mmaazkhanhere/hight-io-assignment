@@ -1,7 +1,7 @@
+/**A react component to toggle between light and dark mode */
 "use client";
 
 import * as React from "react";
-
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ export function ToggleMode() {
 
 	return (
 		<Button
+			aria-label="dark and light mode toggle button"
 			variant="outline"
 			size="icon"
 			className="dark:bg-muted"
