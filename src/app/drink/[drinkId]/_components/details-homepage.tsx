@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { DrinkDetails } from "../../../../../interfaces-d";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { ToggleMode } from "@/components/toggle-mode";
 
 type Props = {
 	drinkId: string;
@@ -58,11 +59,14 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 
 	return (
 		<section className="flex flex-col items-col w-full">
-			<h1 className="text-3xl font-bold text-center">
-				{drinkData.strDrink}
-			</h1>
+			<div className="flex items-center gap-x-5 self-center">
+				<h1 className="text-3xl font-bold  underline decoration-blue-400">
+					{drinkData.strDrink}
+				</h1>
+				<ToggleMode />
+			</div>
 
-			<div className="grid grid-cols-1 lg:grid-cols-2 w-full max-w-5xl mx-auto mt-10">
+			<div className="grid grid-cols-1 lg:grid-cols-2 w-full max-w-5xl mx-auto my-14 ">
 				<div className="flex flex-col items-start w-full">
 					<Image
 						src={drinkData.strDrinkThumb}
@@ -70,22 +74,28 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 						width={400}
 						height={400}
 					/>
-					<div className="flex flex-col gap-y-1">
+					<div className="flex flex-col gap-y-1 mt-5 lg:mt-0">
 						<h2 className="text-lg font-bold">Categories</h2>
-						<Badge>{drinkData.strCategory}</Badge>
+						<Badge className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400">
+							{drinkData.strCategory}
+						</Badge>
 					</div>
 					<div className="flex flex-col gap-y-1">
 						<h2 className="text-lg font-bold">Glass</h2>
-						<Badge>{drinkData.strGlass}</Badge>
+						<Badge className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400">
+							{drinkData.strGlass}
+						</Badge>
 					</div>
 				</div>
-				<div className="flex flex-col items-start w-full">
-					<h2 className="text-lg font-bold">Ingredients</h2>
-					<ul className="w-full">
+				<div className="flex flex-col items-start w-full mt-10 lg:mt-0">
+					<h2 className="text-lg font-semibold uppercase">
+						Ingredients
+					</h2>
+					<ul className="w-full mt-2">
 						{ingredient.map((ing, index) => (
 							<li
 								key={index}
-								className="p-1 rounded-lg border mt-1 w-full"
+								className=" bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 p-1 rounded-lg border mt-1 w-full text-white"
 							>
 								{ingredientMeasure[index] &&
 									ingredientMeasure[index] + " "}
@@ -94,8 +104,10 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 						))}
 					</ul>
 					<div className="flex flex-col gap-y-1 mt-5">
-						<h2 className="text-lg font-bold">Instructions</h2>
-						<p className="p-1 border rounded-lg">
+						<h2 className="text-lg font-semibold uppercase">
+							Instructions
+						</h2>
+						<p className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 p-1 border rounded-lg text-white">
 							{drinkData.strInstructions}
 						</p>
 					</div>

@@ -12,7 +12,13 @@ type Props = {
 const CocktailCard = ({ drink }: Props) => {
 	return (
 		<Link
-			href={`/drink/${drink.idDrink}/${drink.strDrink}`}
+			href={`${
+				drink.strDrink == "50/50"
+					? `/drink/${drink.idDrink}/${encodeURIComponent(
+							drink.strDrink
+					  )}`
+					: `/drink/${drink.idDrink}/${drink.strDrink}`
+			}`}
 			className="bg-gradient-to-tl from-blue-200 via-blue-300 to-blue-400 flex flex-col p-4 shadow-lg hover:scale-105 transition-all duration-500
             rounded-xl gap-y-4"
 		>

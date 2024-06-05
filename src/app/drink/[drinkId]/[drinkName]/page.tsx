@@ -14,13 +14,15 @@ type Props = {
 
 export const generateMetadata = ({ params }: Props): Metadata => {
 	return {
-		title: `Ordinary Cocktails | ${decodeURI(`${params.drinkName}`)}`,
+		title: `Ordinary Cocktails | ${decodeURIComponent(
+			`${params.drinkName}`
+		)}`,
 	};
 };
 
 const DrinkDetails = ({ params }: Props) => {
 	return (
-		<section>
+		<section className="px-4">
 			<Link href="/">
 				<Button
 					size="sm"

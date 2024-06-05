@@ -53,17 +53,17 @@ const Homepage = (props: Props) => {
 		<section className="flex flex-col items-start gap-y-10">
 			<HeroSection />
 
-			<div className="flex items-end gap-x-5 self-center">
+			<div className="flex items-end gap-x-5 self-center px-2">
 				<h1
-					className="text-4xl font-bold mt-10 underline underline-offset-2
-					decoration-blue-500"
+					className="text-3xl md:text-4xl font-bold mt-10 underline underline-offset-2
+					decoration-blue-500 "
 				>
 					Our Cocktail Collection
 				</h1>
 				<ToggleMode />
 			</div>
 
-			<div className="grid grid-cols-4 gap-5 mb-10">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 px-2">
 				{data.drinks.map((drink) => (
 					<div key={drink.idDrink}>
 						<CocktailCard drink={drink} />

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { DrinkDetails } from "../../interfaces-d";
 import Image from "next/image";
 import Link from "next/link";
+import { RotateCw } from "lucide-react";
 
 type Props = {};
 
@@ -25,12 +26,16 @@ const HeroSection = (props: Props) => {
 	}, []);
 
 	if (randomData === null) {
-		return <div>Loading...</div>;
+		return (
+			<div className="w-full flex items-center justify-center h-full">
+				<RotateCw className="w-10 h-10 animate-spin" />
+			</div>
+		);
 	}
 
 	return (
-		<section className="w-full bg-gradient-to-tr from-blue-300 via-blue-500 to-blue-700">
-			<div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-5 items-center py-10 ">
+		<section className="w-full bg-gradient-to-tr from-blue-300 via-blue-500 to-blue-700 px-2">
+			<div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center py-10 ">
 				<div className="flex flex-col items-start gap-y-3">
 					<h1 className="text-5xl font-bold uppercase tracking-wide text-black ">
 						Sip Our Featured Creation{" "}
