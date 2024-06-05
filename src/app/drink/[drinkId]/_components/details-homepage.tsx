@@ -15,11 +15,15 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const request = await fetch(
-				`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`
-			);
-			const response = await request.json();
-			setDrinkData(response.drinks[0]);
+			try {
+				const request = await fetch(
+					`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`
+				);
+				const response = await request.json();
+				setDrinkData(response.drinks[0]);
+			} catch (error) {
+				console.error("Error fetching the drink data", error);
+			}
 		};
 		fetchData();
 	}, [drinkId]);

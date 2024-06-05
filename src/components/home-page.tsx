@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 
-import { RotateCw } from "lucide-react";
 import CocktailCard from "./cocktail-card";
 import { ToggleMode } from "./toggle-mode";
 import Image from "next/image";
@@ -23,11 +22,15 @@ const Homepage = (props: Props) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const request = await fetch(
-				"https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink"
-			);
-			const response = await request.json();
-			setData(response);
+			try {
+				const request = await fetch(
+					"https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink"
+				);
+				const response = await request.json();
+				setData(response);
+			} catch (error) {
+				console.error("Error fetching the cocktail data", error);
+			}
 		};
 		fetchData();
 	}, []);
@@ -51,13 +54,16 @@ const Homepage = (props: Props) => {
 			<HeroSection />
 
 			<div className="flex items-end gap-x-5 self-center">
-				<h1 className="text-4xl font-bold mt-10">
+				<h1
+					className="text-4xl font-bold mt-10 underline underline-offset-2
+					decoration-blue-500"
+				>
 					Our Cocktail Collection
 				</h1>
 				<ToggleMode />
 			</div>
 
-			<div className="grid grid-cols-4 gap-5">
+			<div className="grid grid-cols-4 gap-5 mb-10">
 				{data.drinks.map((drink) => (
 					<div key={drink.idDrink}>
 						<CocktailCard drink={drink} />
