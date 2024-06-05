@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import { RotateCw } from "lucide-react";
 import CocktailCard from "./cocktail-card";
 import { ToggleMode } from "./toggle-mode";
+import Image from "next/image";
+import HeroSection from "./hero-section";
 
 type Props = {};
 interface ResponseFormat {
@@ -33,16 +35,25 @@ const Homepage = (props: Props) => {
 	if (data === null) {
 		return (
 			<div className="flex items-center justify-center w-full h-full">
-				<RotateCw className="w-6 h-6 animate-spin" />
-				Loading ...
+				<Image
+					src="/loading.avif"
+					alt="Loading"
+					width={500}
+					height={500}
+					className=" animate-pulse"
+				/>
 			</div>
 		);
 	}
 
 	return (
 		<section className="flex flex-col items-start gap-y-10">
+			<HeroSection />
+
 			<div className="flex items-end gap-x-5 self-center">
-				<h1 className="text-4xl font-bold mt-10">Cocktails</h1>
+				<h1 className="text-4xl font-bold mt-10">
+					Our Cocktail Collection
+				</h1>
 				<ToggleMode />
 			</div>
 

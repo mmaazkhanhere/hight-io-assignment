@@ -16,12 +16,13 @@ const CocktailCard = ({ drink }: Props) => {
 			className="flex flex-col p-4 shadow-lg hover:scale-105 transition-all duration-500
             rounded-xl gap-y-4"
 		>
-			<div>
+			<div className="overflow-hidden">
 				<Image
 					src={drink.strDrinkThumb}
 					alt={drink.strDrink}
 					width={370}
 					height={370}
+					className="rounded-lg"
 				/>
 			</div>
 			<p className="text-lg font-bold text-center">{drink.strDrink}</p>

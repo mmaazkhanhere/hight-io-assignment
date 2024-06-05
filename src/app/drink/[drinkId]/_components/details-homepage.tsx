@@ -27,8 +27,13 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 	if (drinkData === null) {
 		return (
 			<div className="flex items-center justify-center w-full h-full">
-				<RotateCw className="w-6 h-6 animate-spin" />
-				Loading ...
+				<Image
+					src="/loading.avif"
+					alt="Loading"
+					width={500}
+					height={500}
+					className=" animate-pulse"
+				/>
 			</div>
 		);
 	}
