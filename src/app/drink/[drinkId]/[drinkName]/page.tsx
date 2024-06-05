@@ -27,7 +27,7 @@ const DrinkDetails = ({ params }: Props) => {
 				<Button
 					size="sm"
 					variant="outline"
-					className="flex items-center gap-x-2 text-base"
+					className="flex items-center gap-x-2 text-base dark:bg-muted"
 				>
 					<ArrowLeft className="w-5 h-5" />
 					<span>Back</span>

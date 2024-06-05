@@ -74,15 +74,24 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 						width={400}
 						height={400}
 					/>
-					<div className="flex flex-col gap-y-1 mt-5 lg:mt-0">
+					<div className="flex flex-col gap-y-1 mt-5 lg:mt-2">
 						<h2 className="text-lg font-bold">Categories</h2>
-						<Badge className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400">
+						<Badge
+							className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400
+						dark:bg-gradient-to-tl dark:from-slate-900 dark:via-slate-800 dark:to-slate-700
+						dark:text-white
+						"
+						>
 							{drinkData.strCategory}
 						</Badge>
 					</div>
 					<div className="flex flex-col gap-y-1">
 						<h2 className="text-lg font-bold">Glass</h2>
-						<Badge className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400">
+						<Badge
+							className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400
+						dark:bg-gradient-to-tl dark:from-slate-900 dark:via-slate-800 dark:to-slate-700
+						dark:text-white"
+						>
 							{drinkData.strGlass}
 						</Badge>
 					</div>
@@ -95,7 +104,9 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 						{ingredient.map((ing, index) => (
 							<li
 								key={index}
-								className=" bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 p-1 rounded-lg border mt-1 w-full text-white"
+								className=" bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 
+								dark:bg-gradient-to-tl dark:from-slate-900 dark:via-slate-800 dark:to-slate-700
+								p-1 rounded-lg border mt-1 w-full text-white"
 							>
 								{ingredientMeasure[index] &&
 									ingredientMeasure[index] + " "}
@@ -107,7 +118,11 @@ const DetailsHomepage = ({ drinkId }: Props) => {
 						<h2 className="text-lg font-semibold uppercase">
 							Instructions
 						</h2>
-						<p className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 p-1 border rounded-lg text-white">
+						<p
+							className="bg-gradient-to-bl from-blue-200 via-blue-300 to-blue-400 
+						dark:bg-gradient-to-tl dark:from-slate-900 dark:via-slate-800 dark:to-slate-700
+						p-1 border rounded-lg text-white"
+						>
 							{drinkData.strInstructions}
 						</p>
 					</div>
