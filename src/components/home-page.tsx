@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 
 import { RotateCw } from "lucide-react";
+import CocktailCard from "./cocktail-card";
+import { ToggleMode } from "./toggle-mode";
 
 type Props = {};
 interface ResponseFormat {
@@ -38,15 +40,20 @@ const Homepage = (props: Props) => {
 	}
 
 	return (
-		<div>
-			{data.drinks.map((drink) => {
-				return (
+		<section className="flex flex-col items-start gap-y-10">
+			<div className="flex items-end gap-x-5 self-center">
+				<h1 className="text-4xl font-bold mt-10">Cocktails</h1>
+				<ToggleMode />
+			</div>
+
+			<div className="grid grid-cols-4 gap-5">
+				{data.drinks.map((drink) => (
 					<div key={drink.idDrink}>
-						<p>{drink.strDrink}</p>
+						<CocktailCard drink={drink} />
 					</div>
-				);
-			})}
-		</div>
+				))}
+			</div>
+		</section>
 	);
 };
 
