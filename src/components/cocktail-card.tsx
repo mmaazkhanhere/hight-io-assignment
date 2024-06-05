@@ -12,7 +12,7 @@ type Props = {
 const CocktailCard = ({ drink }: Props) => {
 	return (
 		<Link
-			href={`/drink/${drink.idDrink}`}
+			href={`/drink/${drink.idDrink}/${drink.strDrink}`}
 			className="flex flex-col p-4 shadow-lg hover:scale-105 transition-all duration-500
             rounded-xl gap-y-4"
 		>

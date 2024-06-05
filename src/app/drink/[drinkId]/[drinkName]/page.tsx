@@ -2,11 +2,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { Metadata } from "next";
 import DetailsHomepage from "../_components/details-homepage";
 
-type Props = {};
+type Props = {
+	params: {
+		drinkId: string;
+		drinkName: string;
+	};
+};
 
-const DrinkDetails = (props: Props) => {
+export const generateMetadata = ({ params }: Props): Metadata => {
+	return {
+		title: `Ordinary Cocktails | ${decodeURI(`${params.drinkName}`)}`,
+	};
+};
+
+const DrinkDetails = ({ params }: Props) => {
 	return (
 		<section>
 			<Link href="/">
@@ -21,7 +33,7 @@ const DrinkDetails = (props: Props) => {
 			</Link>
 
 			<div className="mt-10">
-				<DetailsHomepage />
+				<DetailsHomepage drinkId={params.drinkId} />
 			</div>
 		</section>
 	);
