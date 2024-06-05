@@ -14,7 +14,7 @@ const NotFound = (props: Props) => {
 				</Button>
 			</Link>
 			<Image
-				src="/not-found.jpg"
+				src="/not-found.png"
 				alt="Not Found"
 				width={700}
 				height={700}
